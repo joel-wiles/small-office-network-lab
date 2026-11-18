@@ -1,6 +1,6 @@
 # Small Office Network Lab (Cisco Packet Tracer)
 
-A beginner-friendly Cisco lab that sets up a secure network for a small office: one router, one switch and three PCs. Built and tested in Cisco Packet Tracer as CCNA practice.
+A beginner-friendly Cisco lab that sets up a secure network for a small office: one router, one switch and three PCs. Designed for Cisco Packet Tracer as CCNA practice.
 
 ![Network diagram](docs/topology.svg)
 
