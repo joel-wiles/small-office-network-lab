@@ -1,0 +1,51 @@
+! ============================================================
+! R1 - Small Office Router (Cisco 2911 in Packet Tracer)
+! Lab passwords only - change them on any real network.
+! ============================================================
+enable
+configure terminal
+!
+! --- Basic settings ---
+hostname R1
+no ip domain-lookup
+banner motd #Authorized access only. Activity may be monitored.#
+!
+! --- Passwords ---
+enable secret Cisco123!
+service password-encryption
+line console 0
+ password ConPass123!
+ login
+ exec-timeout 10 0
+ logging synchronous
+ exit
+!
+! --- LAN interface (default gateway for the office) ---
+interface GigabitEthernet0/0
+ description LAN to SW1
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+ exit
+!
+! --- DHCP: hand out addresses .11 to .254 ---
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp pool OFFICE-LAN
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ domain-name office.local
+ exit
+!
+! --- SSH for secure remote management ---
+ip domain-name office.local
+username admin secret Admin123!
+crypto key generate rsa general-keys modulus 1024
+ip ssh version 2
+line vty 0 4
+ login local
+ transport input ssh
+ exec-timeout 10 0
+ exit
+!
+end
+copy running-config startup-config
