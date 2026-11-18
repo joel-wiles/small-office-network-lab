@@ -1,0 +1,64 @@
+! ============================================================
+! SW1 - Small Office Switch (Cisco 2960 in Packet Tracer)
+! Lab passwords only - change them on any real network.
+! ============================================================
+enable
+configure terminal
+!
+! --- Basic settings ---
+hostname SW1
+no ip domain-lookup
+banner motd #Authorized access only. Activity may be monitored.#
+!
+! --- Passwords ---
+enable secret Cisco123!
+service password-encryption
+line console 0
+ password ConPass123!
+ login
+ exec-timeout 10 0
+ logging synchronous
+ exit
+!
+! --- Management IP so the switch can be reached remotely ---
+interface Vlan1
+ ip address 192.168.10.2 255.255.255.0
+ no shutdown
+ exit
+ip default-gateway 192.168.10.1
+!
+! --- Label the ports in use ---
+interface FastEthernet0/1
+ description PC1
+ exit
+interface FastEthernet0/2
+ description PC2
+ exit
+interface FastEthernet0/3
+ description PC3
+ exit
+interface GigabitEthernet0/1
+ description Uplink to R1
+ exit
+!
+! --- Shut down unused ports (security best practice) ---
+interface range FastEthernet0/4 - 24
+ shutdown
+ exit
+interface GigabitEthernet0/2
+ shutdown
+ exit
+!
+! --- SSH for secure remote management ---
+ip domain-name office.local
+username admin secret Admin123!
+crypto key generate rsa general-keys modulus 1024
+ip ssh version 2
+line vty 0 15
+ login local
+ transport input ssh
+ exec-timeout 10 0
+ exit
+!
+end
+copy running-config startup-config
