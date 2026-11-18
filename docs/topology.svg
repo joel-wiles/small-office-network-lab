@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Helvetica, Arial, sans-serif">
+  <rect width="760" height="420" fill="#ffffff"/>
+  <text x="380" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1F3A60">Small Office Network – 192.168.10.0/24</text>
+
+  <!-- links -->
+  <line x1="380" y1="118" x2="380" y2="192" stroke="#333" stroke-width="3"/>
+  <line x1="380" y1="248" x2="160" y2="330" stroke="#333" stroke-width="3"/>
+  <line x1="380" y1="248" x2="380" y2="330" stroke="#333" stroke-width="3"/>
+  <line x1="380" y1="248" x2="600" y2="330" stroke="#333" stroke-width="3"/>
+
+  <!-- port labels -->
+  <text x="390" y="135" font-size="12" fill="#B03030">G0/0</text>
+  <text x="390" y="186" font-size="12" fill="#B03030">G0/1</text>
+  <text x="250" y="275" font-size="12" fill="#B03030">Fa0/1</text>
+  <text x="390" y="290" font-size="12" fill="#B03030">Fa0/2</text>
+  <text x="480" y="275" font-size="12" fill="#B03030">Fa0/3</text>
+
+  <!-- R1 -->
+  <circle cx="380" cy="88" r="30" fill="#1F6FB2"/>
+  <path d="M362 80 L398 80 M362 96 L398 96 M392 74 L398 80 L392 86 M368 90 L362 96 L368 102" stroke="#fff" stroke-width="3" fill="none"/>
+  <text x="430" y="82" font-size="15" font-weight="bold" fill="#1F3A60">R1 (2911)</text>
+  <text x="430" y="100" font-size="12" fill="#333">192.168.10.1 · DHCP server</text>
+
+  <!-- SW1 -->
+  <rect x="330" y="195" width="100" height="50" rx="6" fill="#2E8B57"/>
+  <path d="M345 212 L415 212 M345 228 L415 228 M408 206 L415 212 L408 218 M352 222 L345 228 L352 234" stroke="#fff" stroke-width="3" fill="none"/>
+  <text x="445" y="215" font-size="15" font-weight="bold" fill="#1F3A60">SW1 (2960)</text>
+  <text x="445" y="233" font-size="12" fill="#333">VLAN 1: 192.168.10.2</text>
+
+  <!-- PCs -->
+  <g>
+    <rect x="125" y="330" width="70" height="44" rx="4" fill="#555"/><rect x="133" y="337" width="54" height="30" fill="#9FD3F5"/>
+    <text x="160" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3A60">PC1</text>
+    <text x="160" y="411" text-anchor="middle" font-size="11" fill="#333">DHCP</text>
+  </g>
+  <g>
+    <rect x="345" y="330" width="70" height="44" rx="4" fill="#555"/><rect x="353" y="337" width="54" height="30" fill="#9FD3F5"/>
+    <text x="380" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3A60">PC2</text>
+    <text x="380" y="411" text-anchor="middle" font-size="11" fill="#333">DHCP</text>
+  </g>
+  <g>
+    <rect x="565" y="330" width="70" height="44" rx="4" fill="#555"/><rect x="573" y="337" width="54" height="30" fill="#9FD3F5"/>
+    <text x="600" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3A60">PC3</text>
+    <text x="600" y="411" text-anchor="middle" font-size="11" fill="#333">DHCP</text>
+  </g>
+</svg>
